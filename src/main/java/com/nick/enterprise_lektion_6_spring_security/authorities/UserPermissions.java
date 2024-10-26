@@ -1,6 +1,6 @@
 package com.nick.enterprise_lektion_6_spring_security.authorities;
 
-public enum Permissions {
+public enum UserPermissions {
 
     GET("GET"),
     POST("POST"),
@@ -9,7 +9,7 @@ public enum Permissions {
 
     final String permission;
 
-    Permissions(String permission) {
+    UserPermissions(String permission) {
         this.permission = permission;
     }
 
