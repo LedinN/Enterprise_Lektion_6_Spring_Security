@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class EnterpriseLektion6SpringSecurityApplication {
 
+
     public static void main(String[] args) {
         SpringApplication.run(EnterpriseLektion6SpringSecurityApplication.class, args);
     }
