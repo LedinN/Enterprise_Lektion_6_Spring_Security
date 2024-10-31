@@ -1,5 +1,6 @@
 package com.nick.enterprise_lektion_6_spring_security.config;
 
+import com.nick.enterprise_lektion_6_spring_security.authorities.UserRole;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
@@ -20,7 +21,8 @@ public class AppSecurityConfig {
     http
             .authorizeHttpRequests(auth -> auth
                     .requestMatchers("/", "/login", "/api/**").permitAll()
-                    .requestMatchers("/test").hasRole("ADMIN")
+                    .requestMatchers("/admin").hasRole(UserRole.ADMIN.name())
+                    .requestMatchers("/user").hasRole(UserRole.USER.name()) //.hasAuthority alternativ, UserPermission.DELETE.getPermission()
                     .anyRequest()
                     .authenticated()
             )
@@ -39,6 +41,7 @@ public class AppSecurityConfig {
                 .withDefaultPasswordEncoder()
                 .username("nick")
                 .password("hej")
+                .authorities(UserRole.USER.getAuthorities())
                 .build();
 
         return new InMemoryUserDetailsManager(user);

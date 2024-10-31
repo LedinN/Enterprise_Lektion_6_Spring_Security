@@ -7,7 +7,7 @@ public enum UserPermissions {
     PUT("PUT"),
     DELETE("DELETE");
 
-    final String permission;
+    private final String permission;
 
     UserPermissions(String permission) {
         this.permission = permission;
